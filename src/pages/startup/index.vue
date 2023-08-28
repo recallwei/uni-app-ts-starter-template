@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app'
 
-onLoad(() =>
+onLoad(() => {
+  const data = {
+    name: '张三',
+    age: 18
+  }
   setTimeout(() => {
-    uni.redirectTo({ url: '/pages/' })
+    uni.redirectTo({
+      url:
+        '/pages/index/index' +
+        '?data=' +
+        encodeURIComponent(JSON.stringify(data))
+    })
   }, 1000)
-)
+})
 </script>
 
-<template><view>Startup</view></template>
+<template>
+  <view>微信小程序启动页</view>
+</template>

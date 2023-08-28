@@ -35,7 +35,10 @@
     }
   ],
   "easycom": {
-    "autoscan": true
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue"
+    }
   },
   "globalStyle": {
     "navigationBarTextStyle": "black",

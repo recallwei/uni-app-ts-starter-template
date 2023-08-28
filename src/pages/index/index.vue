@@ -1,29 +1,93 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { onLoad } from '@dcloudio/uni-app'
+import type { ToastRef } from 'uview-plus'
+
 const title = ref('Hello')
+const user = ref<User | null>(null)
+
+const uToastRef = ref<ToastRef | null>(null)
 
 function navTo(url: string) {
   uni.navigateTo({
     url
   })
 }
+
+interface User {
+  name: string
+  age: number
+}
+
+interface Option {
+  data: string
+}
+
+function handleClick() {
+  uToastRef.value!.show({
+    message: 'Hello World',
+    duration: 2000
+  })
+}
+
+onLoad((option) => {
+  const { data } = option as Option
+  try {
+    user.value = <User>JSON.parse(data)
+  } catch {
+    user.value = null
+  }
+})
 </script>
 
 <template>
-  <view class="content">
-    <image
-      class="logo"
-      src="/static/logo.png"
-    />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
+  <view>
+    <view class="content">
+      <image
+        class="logo"
+        src="/static/logo.png"
+      />
+      <view class="text-area">
+        <text class="title">{{ title }}</text>
+      </view>
     </view>
-  </view>
 
-  <view class="link-list">
-    <text @click="navTo('/pages/login/index')">/login</text>
-    <text @click="navTo('/pages/list/index')">/list</text>
-    <text @click="navTo('/pages/startup/index')">/startup</text>
+    <view class="link-list">
+      <text @click="navTo('/pages/login/index')">/login</text>
+      <text @click="navTo('/pages/list/index')">/list</text>
+      <text @click="navTo('/pages/startup/index')">/startup</text>
+    </view>
+
+    <template v-if="user">
+      <view class="user">
+        <text>{{ user.name }}</text>
+        <text>{{ user.age }}</text>
+      </view>
+    </template>
+
+    <view
+      style="
+        display: flex;
+        width: fit-content;
+        justify-content: center;
+        gap: 4px;
+        margin: auto;
+      "
+    >
+      <u-button
+        text="确定"
+        type="primary"
+        @click="handleClick"
+      >
+      </u-button>
+      <u-button
+        text="取消"
+        type="primary"
+      >
+      </u-button>
+    </view>
+
+    <u-toast ref="uToastRef"></u-toast>
   </view>
 </template>
 
@@ -66,6 +130,15 @@ function navTo(url: string) {
     text-align: center;
     margin-top: 8px;
     transition: all 0.3s ease-in-out;
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  & > text {
+    margin-top: 4px;
   }
 }
 </style>
