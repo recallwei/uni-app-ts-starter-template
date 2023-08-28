@@ -1,0 +1,46 @@
+{
+  "entryPagePath": "pages/startup/index", // 微信小程序下的启动页
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    },
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    },
+    {
+      "path": "pages/list/index",
+      "style": {
+        "navigationBarTitleText": "uni-app",
+        "enablePullDownRefresh": true,
+        "h5": {
+          "pullToRefresh": {
+            "color": "#0078d7"
+          }
+        }
+      }
+    },
+    // NOTE: 仅在微信小程序下使用启动页面
+    {
+      "path": "pages/startup/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    }
+  ],
+  "easycom": {
+    "autoscan": true
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
+}
