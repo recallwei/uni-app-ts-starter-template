@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { onLoad } from '@dcloudio/uni-app'
 import type { ToastRef } from 'uview-plus'
 
 const title = ref('Hello')
@@ -56,6 +54,7 @@ onLoad((option) => {
       <text @click="navTo('/pages/login/index')">/login</text>
       <text @click="navTo('/pages/list/index')">/list</text>
       <text @click="navTo('/pages/startup/index')">/startup</text>
+      <text @click="navTo('/pages/components/index')">/components</text>
     </view>
 
     <template v-if="user">
@@ -87,7 +86,7 @@ onLoad((option) => {
       </u-button>
     </view>
 
-    <u-toast ref="uToastRef"></u-toast>
+    <u-toast ref="uToastRef" />
   </view>
 </template>
 

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onLoad } from '@dcloudio/uni-app'
-
 onLoad(() => {
   const data = {
     name: '张三',
@@ -8,10 +6,7 @@ onLoad(() => {
   }
   setTimeout(() => {
     uni.redirectTo({
-      url:
-        '/pages/index/index' +
-        '?data=' +
-        encodeURIComponent(JSON.stringify(data))
+      url: `/pages/index/index?data=${JSON.stringify(data)}`
     })
   }, 1000)
 })

@@ -1,17 +1,44 @@
 {
   "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["esnext", "dom"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "allowJs": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "lib": ["esnext", "dom"],
     "types": [
       "@dcloudio/types",
       "@ttou/uview-typings/v3",
       "@ttou/uview-typings/refs"
     ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

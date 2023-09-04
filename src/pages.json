@@ -26,6 +26,12 @@
         }
       }
     },
+    {
+      "path": "pages/components/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    },
     // NOTE: 仅在微信小程序下使用启动页面
     {
       "path": "pages/startup/index",

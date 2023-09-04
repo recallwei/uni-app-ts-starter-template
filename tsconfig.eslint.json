@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["@types/node"],
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts",
+    "shims-uni.d.ts",
+    "env.d.ts",
+    "auto-imports.d.ts"
+  ]
+}
