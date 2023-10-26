@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   const { VITE_PORT, VITE_BASE_API_URL, VITE_MOCK_API_URL } =
     env as ImportMetaEnv
 
-  const port = parseInt(VITE_PORT, 10)
+  const port = parseInt(VITE_PORT, 10) || 3000
   const proxy: Record<string, string | ProxyOptions> = {
     '/base-api': {
       target: VITE_BASE_API_URL,
